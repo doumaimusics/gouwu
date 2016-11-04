@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<script src="jquery-1.6.4.min.js"></script>
+		<title>Document</title>
+		<link rel="stylesheet" href="index.css" />
+	</head>
+
+
+	<body>
+		<div class="top-nav-box">
+			<div class="nav-box">
+				<ul>
+					<li class="active">
+						<a href="#">首页</a>
+					</li>
+					<li>
+						<a href="#">在线计价</a>
+					</li>
+					<li>
+						<a href="#">SMT打样</a>
+					</li>
+					<li>
+						<a href="#">下单流程</a>
+					</li>
+					<li>
+						<a href="#">工厂展示</a>
+					</li>
+					<li>
+						<a href="#">样板展示</a>
+					</li>
+					<li>
+						<a href="#">工艺展示</a>
+					</li>
+					<li>
+						<a href="#">公司简介</a>
+					</li>
+					<li>
+						<a href="#">联系我们</a>
+					</li>
+					<li>
+						<a href="#">工程师家园</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="select-box">
+			<ul class="select">
+				<!--topInstalled-->
+				<li class="select-list clearfix">
+					<dl class="select1">
+						<dt>topInstalled:</dt>
+						<dd class="select-all selected">
+							<a href="#">All</a>
+						</dd>
+						<dd>
+							<a href="#">sweater</a>
+						</dd>
+						<dd>
+							<a href="#">Woolen coat</a>
+						</dd>
+						<dd>
+							<a href="#">T-shirt</a>
+						</dd>
+						<dd>
+							<a href="#">Down jacket</a>
+						</dd>
+						<dd>
+							<a href="#">Cotton clothing</a>
+						</dd>
+						<dd>
+							<a href="#">Sweater</a>
+						</dd>
+						<dd>
+							<a href="#">Windbreaker</a>
+						</dd>
+					</dl>
+				</li>
+
+				<li class="select-list clearfix">
+					<dl class="select2">
+						<dt>pants:</dt>
+						<dd class="select-all selected">
+							<a href="#">All</a>
+						</dd>
+						<dd>
+							<a href="#">jeans</a>
+						</dd>
+						<dd>
+							<a href="#">Feet / pencil pants</a>
+						</dd>
+						<dd>
+							<a href="#">casual pants</a>
+						</dd>
+						<dd>
+							<a href="#">Leggings</a>
+						</dd>
+						<dd>
+							<a href="#">Harlan pants</a>
+						</dd>
+					</dl>
+				</li>
+				
+				<li class="select-list clearfix">
+					<dl class="select3">
+						<dt>Skirt:</dt>
+						<dd class="select-all selected">
+							<a href="#">All</a>
+						</dd>
+						<dd>
+							<a href="#">dress</a>
+						</dd>
+						<dd>
+							<a href="#">skirt</a>
+						</dd>
+						<dd>
+							<a href="#">long-sleeved dress</a>
+						</dd>
+						<dd>
+							<a href="#">In the long paragraph dress</a>
+						</dd>				
+					</dl>
+				</li>		
+				<!--选择结果-->
+				<li class="select-result clearfix">
+					<dl>
+						<dt>已选条件：</dt>
+						<dd class="select-no">暂时没有选择过滤条件</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+<script>
+	$(function() {
+		//导航背景变色
+		$(".top-nav-box .nav-box li").click(function() {
+			$(".top-nav-box .nav-box li").removeClass("active");
+			$(this).addClass("active");
+		})
+		//选项点击变色
+		$(".select1 dd").click(function(){
+			$(this).addClass("selected").siblings().removeClass("selected")
+			//选择商品放在已选条件里
+			if($(this).hasClass("select-all")){   /*检查当前的元素是否含有select-all的类，如果有，则返回true。*/
+                 $("#selectA").remove();				
+			}else{
+				var copyThisA = $(this).clone();
+				if($("#selectA").length>0){
+					$("#selectA a").html($(this).text());
+				}else{
+					$(".select-result dl").append(copyThisA.attr("id","selectA"));
+				}
+			}
+		})
+		$(".select2 dd").click(function(){
+			$(this).addClass("selected").siblings().removeClass("selected")
+			//选择商品放在已选条件里
+		if($(this).hasClass("select-all")){
+			$("#selectB").remove();
+		}else{
+			var copyThisB = $(this).clone();
+			if($("#selectB").length>0){
+				$("#selectB a").html($(this).text());
+			}else{
+				$(".select-result dl").append(copyThisB.attr("id","selectB"));
+			}
+		}
+		})
+		$(".select3 dd").click(function(){
+			$(this).addClass("selected").siblings().removeClass("selected")
+			//选择商品放在已选条件里			
+			if($(this).hasClass("select-all")){
+				$("#selectC").remove();
+			}else{
+				var copyThisC = $(this).clone();
+				if($("#selectC").length>0){
+					$("#selectC a").html($(this).text());
+				}else{
+					$(".select-result dl").append(copyThisC.attr("id","selectC"))
+				}
+			}
+		})
+	//点击已选条件去除不想选择的
+	$("#selectA").live("click",function(){
+		$(this).remove();
+		$(".select1 .select-all").addClass("selected").siblings().removeClass("selected")
+	})
+
+	$("#selectB").live("click",function(){
+		$(this).remove();
+		$(".select2 .select-all").addClass("selected").siblings().removeClass("selected")
+	})
+
+	$("#selectC").live("click",function(){
+		$(this).remove();
+		$(".select3 .select-all").addClass("selected").siblings().removeClass("selected")
+	})
+	$(".select dd").live("click", function () {
+		if ($(".select-result dd").length > 1) {
+			$(".select-no").hide();
+		} else {
+			$(".select-no").show();
+		}
+	});
+	})
+</script>

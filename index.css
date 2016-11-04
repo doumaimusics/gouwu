@@ -1,0 +1,148 @@
+		* {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		
+		a {
+			text-decoration: none;
+			color: #333;
+		}
+		
+		body {
+			font-family: "微软雅黑";
+			background: #fff;
+			font-size: 16px;
+		}
+		
+		.clearfix {
+			zoom: 1;
+		}
+		
+		.clearfix:after {
+			content: '.';
+			height: 0;
+			display: block;
+			visibility: hidden;
+			clear: both;
+		}
+		
+		.top-nav-box {
+			width: 100%;
+			height: 30px;
+			background: #F1F1F1;
+		}
+		
+		.nav-box {
+			width: 980px;
+			height: 100%;
+			margin: 0 auto;
+		}
+		
+		.nav-box li {
+			float: left;
+			line-height: 30px;
+			color: #666666;
+			font-size: 14px;
+			font-weight: bold;
+		}
+		
+		.nav-box li.active {
+			background: #ff5500;
+		}
+		
+		.nav-box li.active a {
+			color: #fff;
+		}
+		
+		.nav-box li:hover {
+			background: #FF5500;
+		}
+		
+		.nav-box li:hover a {
+			color: #fff;
+		}
+		
+		.nav-box li a {
+			padding: 0px 15px;
+			color: #666;
+			display: block;
+		}
+		
+		.select-box {
+			width: 100%;
+			height: auto;
+		}
+		
+		.select-box .select {
+			width: 980px;
+			margin: 30px auto;
+			padding: 5px 10px;
+			border: #ddd 1px solid;
+			border-radius: 4px;
+			margin: 5% auto;
+			font-size: 12px;
+			height: auto;
+		}
+		
+		.select-box .select .select-list {
+			border-bottom: 1px dashed #EEEEEE;
+			padding: 10px 0;
+			height: auto;
+		}
+		
+		.select-box .select dl dt {
+			float: left;
+			width: 100px;
+			text-align: right;
+			color: #666;
+			height: 24px;
+			line-height: 24px;
+			font-size: 14px;
+		}
+		
+		.select-box .select dd {
+			float: left;
+			margin-left: 5px;
+		}
+		
+		.select-box .select dd a {
+			display: inline-block;
+			white-space: nowrap;
+			height: 24px;
+			padding: 0 10px;
+			color: #039;
+			border-radius: 2px;
+			line-height: 24px;
+		}
+		
+		.select-box .select dd a:hover {
+			background: #F3EDC2;
+			color: #039;
+		}
+		
+		.select-box .select dd.selected a {
+			background: #FF6600;
+			color: #fff;
+		}
+		
+		.select-box .select .select-result dt {
+			line-height: 24px;
+			font-size: 14px;
+			/*color: #666666;*/
+			font-weight: bold;
+		}
+		
+		.select-box .select .select-result a {
+			padding-right: 20px;
+			background: url("close.gif") right 9px no-repeat;
+		}
+		
+		.select-box .select .select-result a:hover {
+			background-position: right -15px
+		}
+		
+		.select-no {
+			color: #999;
+			line-height: 24px;
+		}
